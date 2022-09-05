@@ -1,6 +1,6 @@
-header {
-    color: red;
-    gap: 10px;
+/* header {
+    color: black;
+    
     background-color: #288ada;
     padding: 10px;
 }
@@ -9,10 +9,33 @@ footer {
     gap: 10px;
     background-color: #288ada;
     padding: 10px;
-}
+}  */
 
 main {
     background-color: silver;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 
