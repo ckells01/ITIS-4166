@@ -1,0 +1,18 @@
+header {
+    color: red;
+    gap: 10px;
+    background-color: #288ada;
+    padding: 10px;
+}
+
+footer {
+    gap: 10px;
+    background-color: #288ada;
+    padding: 10px;
+}
+
+main {
+    background-color: silver;
+}
+
+
