@@ -1,41 +1,51 @@
-/* header {
-    color: black;
-    
-    background-color: #288ada;
-    padding: 10px;
+.header {
+  color: rgb(146, 30, 30);
+  background-color: #046A38;
+  margin-left: 5em;
+  margin-right: 5em;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%; 
+  /* border: 1px black solid; */
 }
 
-footer {
-    gap: 10px;
-    background-color: #288ada;
-    padding: 10px;
-}  */
-
-main {
-    background-color: silver;
+body {
+  /* margin: 0 auto; */
+  margin-left: 5em;
+  margin-right: 5em;
+  background-color: white
 }
 
 a {
-  color: black;
+  color: #B9975B;
   text-decoration: none;
 }
 
 a:hover {
-  color: darkblue;
+  color: #27251F;
   text-decoration: underline;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+.footer {
+  background-color: #046A38;
+  display: inline-flex; /* Needed to get footer text and logos on same line */
+  justify-content: space-between; /* Needed to get text and logo in corners */
+  width: 100%;
+  text-decoration: none;
 }
 
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  font-size: 30px;
+.header-logo {
   text-align: center;
+  width: 4em;
+  height: auto;
 }
 
+.user-nav {
+  color: #B9975B;
+}
+
+.footer-content
+{
+  color: #B9975B;
+}
