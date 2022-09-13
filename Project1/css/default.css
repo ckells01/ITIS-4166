@@ -1,20 +1,19 @@
 .header {
-  color: rgb(146, 30, 30);
   background-color: #046A38;
-  margin-left: 5em;
-  margin-right: 5em;
   padding: 10px;
   display: inline-flex;
   justify-content: space-between;
-  width: 100%; 
-  /* border: 1px black solid; */
+  width: 100%;
 }
 
 body {
-  /* margin: 0 auto; */
   margin-left: 5em;
   margin-right: 5em;
-  background-color: white
+  background-color: white;
+}
+
+main {
+  color: black;
 }
 
 a {
@@ -29,14 +28,15 @@ a:hover {
 
 .footer {
   background-color: #046A38;
-  display: inline-flex; /* Needed to get footer text and logos on same line */
-  justify-content: space-between; /* Needed to get text and logo in corners */
+  display: inline-flex;
+  /* Needed to get footer text and logos on same line */
+  justify-content: space-between;
+  /* Needed to get text and logo in corners */
   width: 100%;
-  text-decoration: none;
+  padding: 10px;
 }
 
 .header-logo {
-  text-align: center;
   width: 4em;
   height: auto;
 }
@@ -45,7 +45,14 @@ a:hover {
   color: #B9975B;
 }
 
-.footer-content
-{
+.footer-content {
   color: #B9975B;
 }
+
+.footer-logos {
+  text-align: right;
+  /* width: 2em;
+  height: auto;
+  /* display: inline-flex; */
+  /* justify-content: space-between; */
+} 
