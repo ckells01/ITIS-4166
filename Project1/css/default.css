@@ -46,6 +46,8 @@ a:hover {
 .contents {
   padding-left: 7em;
   padding-right: 7em;
+  padding-top: 5em;
+  padding-bottom: 5em
 }
 
 .main-nav {
