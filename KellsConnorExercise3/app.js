@@ -30,7 +30,7 @@ app.get('/students', (req, res) => {
 });
 
 app.post('/students', (req, res) => {
-    console.log(req.body, "Hello");
+    //console.log(req.body);
     let student = req.body;
     student.id = uuidv4();
     students.push(student);
