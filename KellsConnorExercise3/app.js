@@ -24,12 +24,13 @@ app.get('/', (req, res) => {
     res.sendFile('./views/index.html', { root: __dirname });
 });
 
+// TODO
 app.get('/students', (req, res) => {
-    res.json(students);
+    res.render('students', {students});
 });
 
 app.post('/students', (req, res) => {
-    //console.log(req.body);
+    console.log(req.body, "Hello");
     let student = req.body;
     student.id = uuidv4();
     students.push(student);
