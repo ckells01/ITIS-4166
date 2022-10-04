@@ -2,7 +2,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
-// const ejs = require('ejs');
 const storyRoutes = require('./routes/storyRoutes');
 
 // Create app
