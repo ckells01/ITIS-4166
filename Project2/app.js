@@ -27,7 +27,7 @@ app.use('/events', eventRoutes);
 
 // Error handling
 app.use((req, res, next) => {
-    let err = new Error('The sever cannot locate ' + req.url);
+    let err = new Error('The server cannot locate ' + req.url);
     err.status = 404;
     next(err);
 });

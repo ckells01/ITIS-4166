@@ -2,7 +2,7 @@ const model = require('../models/event');
 
 exports.index = (req, res) => {
     let events = model.find();
-    res.render('./event/index', {events});
+    res.render('.views/event/index', {events});
 }
 
 exports.new = (req, res) => {
