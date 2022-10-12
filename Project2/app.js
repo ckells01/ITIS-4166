@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const eventRoutes = require('./routes/eventRoutes');
+const mainRoutes = require('./routes/mainRoutes');
 
 // Create app
 const app = express();
@@ -23,7 +24,12 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/event', (req, res) => {
+    res.render('events');
+});
+
 app.use('/events', eventRoutes);
+app.use('/', mainRoutes);
 
 // Error handling
 app.use((req, res, next) => {

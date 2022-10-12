@@ -2,7 +2,7 @@ const model = require('../models/event');
 
 exports.index = (req, res) => {
     let events = model.find();
-    res.render('.views/event/index', {events});
+    res.render('./event/index', {events});
 }
 
 exports.new = (req, res) => {
@@ -12,12 +12,13 @@ exports.new = (req, res) => {
 exports.create = (req, res) => {
     let event = req.body;
     model.save(event);
-    res.redirect('/events');
+    res.redirect('./event/index');
 }
 
 exports.show = (req, res, next) => {
     let id = req.params.id;
     let event = model.findById(id);
+    console.log(event);
     if(event) {
         res.render('./event/show', {event});
     } else {
@@ -55,7 +56,7 @@ exports.update = (req, res, next) => {
 exports.delete = (req, res, next) => {
     let id = req.params.id.trim();
     if (model.deleteById(id)) {
-        res.redirect('/events');
+        res.redirect('/index');
     } else {
         let err = new Error('Cannot find a event with id ' + id);
         err.status = 404;

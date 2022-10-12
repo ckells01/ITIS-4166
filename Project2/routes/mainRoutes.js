@@ -7,9 +7,9 @@ const router = express.Router();
 router.get('/', controller.index);
 
 // GET /about: send about page to the user
-router.get('/', controller.about);
+router.get('/about', controller.about);
 
 // GET /contact: send contact page to the user
-router.get('/', controller.contact);
+router.get('/contact', controller.contact);
 
 module.exports = router;
