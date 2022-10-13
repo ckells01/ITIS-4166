@@ -84,3 +84,7 @@ a:hover {
   padding-left: 3em;
   padding-right: 3em;
 }
+
+.eventButtons {
+  padding-right: 5em;
+}

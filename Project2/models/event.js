@@ -6,6 +6,7 @@ const events = [
     id: '1',
     title: 'Title',
     host: 'Host',
+    category: 'Cat',
     location: 'Location',
     date: 'Date',
     startTime: 'Start',
@@ -16,6 +17,7 @@ const events = [
     id: '2',
     title: 'Title',
     host: 'Host',
+    category: 'Cat',
     location: 'Location',
     date: 'Date',
     startTime: 'Start',
@@ -40,6 +42,7 @@ exports.updateById = function(id, newevent) {
     if(event) {
         event.title = newevent.title;
         event.host = newevent.host;
+        event.category = newevent.category;
         event.location = newevent.location;
         event.date = newevent.date;
         event.startTime = newevent.startTime;
