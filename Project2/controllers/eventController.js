@@ -56,7 +56,7 @@ exports.update = (req, res, next) => {
 exports.delete = (req, res, next) => {
     let id = req.params.id.trim();
     if (model.deleteById(id)) {
-        res.redirect('/index');
+        res.redirect('/events');
     } else {
         let err = new Error('Cannot find a event with id ' + id);
         err.status = 404;
