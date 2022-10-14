@@ -8,9 +8,9 @@ const events = [
     host: 'HCS',
     category: 'stream',
     location: 'HCS Twitch Channel',
-    date: '10/31/2022',
-    startTime: '06:30 PM',
-    endTime: '09:00 PM',
+    date: '2022-10-25',
+    startTime: '18:30',
+    endTime: '21:00',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia, nulla quis volutpat pellentesque.',
 },
 {

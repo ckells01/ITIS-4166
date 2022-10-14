@@ -12,7 +12,7 @@ exports.new = (req, res) => {
 exports.create = (req, res) => {
     let event = req.body;
     model.save(event);
-    res.redirect('./event/index');
+    res.redirect('./events/');
 }
 
 exports.show = (req, res, next) => {

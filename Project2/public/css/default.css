@@ -88,3 +88,7 @@ a:hover {
 .eventButtons {
   padding-right: 5em;
 }
+
+.formStyle {
+  width: 16em;
+}
