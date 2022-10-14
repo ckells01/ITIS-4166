@@ -2,7 +2,7 @@
     <main>
         <div class = "contents">
             <h2>Edit Event</h2>
-            <form method = "POST" action="/events <%= event.id %>?_method=PUT">
+            <form method = "POST" action="/events/<%= event.id %>?_method=PUT">
                 <label for="title">Title:</label><br>
                 <input type="text" id="title" name="title" value="<%= event.title %>" class="formStyle">
                 <br><br>
@@ -17,6 +17,7 @@
                 <br><br>
                 <label for="time_start">Start Time:</label><br>
                 <input type="time" id="time_start" name="time_start" value="<%= event.startTime %>" class="formStyle">
+                <%= event.startTime = event.startTime.toString() %>
                 <br><br>
                 <label for="time_end">End Time:</label><br>
                 <input type="time" id="time_end" name="time_end" value="<%= event.endTime %>" class="formStyle">
@@ -27,11 +28,6 @@
                 <label for="category">Category:</label><br>
                 <input type="text" id="category" name="category" value="<%= event.category %>" class="formStyle">
                 <br><br>
-                <!-- <p>Category: Livestream, Group Play, or Other</p>
-                <input type="radio" id="groupPlay" name="category">
-                <label for="groupPlay">Group Play</label><br>
-                <input type="radio" id="stream" name="category">
-                <label for="stream">Livestream</label><br>  -->
                 <button>Update Event</button>
             </form>
         </div>

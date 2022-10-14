@@ -16,7 +16,7 @@ router.post('/', controller.create);
 router.get('/:id', controller.show);
 
 // GET /stories/:id: send html form for editing an exsisting event
-router.get('/:id/edit',controller.edit);
+router.get('/:id/edit', controller.edit);
 
 // PUT /stories/:id: update the event identified by id
 router.put('/:id', controller.update);
