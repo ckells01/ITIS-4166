@@ -90,7 +90,6 @@ exports.updateById = function(id, newevent) {
         event.location = newevent.location;
         event.date = newevent.date;
         event.startTime = newevent.startTime;
-        console.log("TIME STRING IS: " + newevent.startTime);
         event.endTime = newevent.endTime;
         event.description = newevent.description;
         return true;

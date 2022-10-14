@@ -43,7 +43,6 @@ exports.edit = (req, res, next) => {
 exports.update = (req, res, next) => {
     let event = req.body;
     let id = req.params.id.trim();
-
     if (model.updateById(id, event)) {
         res.redirect('/events/' + id); 
     } else {
