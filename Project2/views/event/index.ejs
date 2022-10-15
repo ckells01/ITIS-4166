@@ -17,7 +17,7 @@
             <ul>
                 <% if(events.length) { %>
                     <% events.forEach(event => { %>
-                        <% if(event.category === 'Group Play' || event.category === 'Group play' || event.category === 'group Play' || event.category === 'group play' || event.category === 'play' || event.category === 'Play') { %>
+                        <% if(event.category === 'Group Play' || event.category === 'Group play' || event.category === 'group Play' || event.category === 'group play' || event.category === 'play' || event.category === 'Play' || event.category === 'group' || event.category === 'Group') { %>
                             <li><a href = "/events/<%= event.id%>"><%= event.title %></a></li>
                         <% } %>
                     <% }); %>
