@@ -2,6 +2,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 const eventRoutes = require('./routes/eventRoutes');
 const mainRoutes = require('./routes/mainRoutes');
 
@@ -11,7 +12,18 @@ const app = express();
 // Configure app
 let port = 8084;
 let host = 'localhost';
+let url = 'mongodb://localhost:27017/events'
 app.set('view engine', 'ejs');
+
+// Connect to MongoDB
+mongoose.connect(url)
+.then(() => {
+    // Start the server
+    app.listen(port, host, () => {
+        console.log('Server is running on port', port);
+    })
+})
+.catch(err => console.log(err.message));
 
 // Mount middleware
 app.use(express.static('public'));
@@ -46,9 +58,4 @@ app.use((err, req, res, next) => {
     }
     res.status(err.status);
     res.render('error', {error: err});
-});
-
-// Start server
-app.listen(port, host, () => {
-    console.log('Server is running on port', port);
 });
