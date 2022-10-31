@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <div class="contents">
+            <div class="lineup">
+                <h2><%= event.title %></h2>
+                <div>
+                    <form>
+                        <button type="submit" formmethod="GET" formaction="/events/<%= event.id %>/edit">Edit</button>
+                        <button type="submit" formmethod="POST" formaction="/events/<%= event.id %>?_method=DELETE">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <div class="event_content">
+                <img src="../images/event_halo.webp" alt="Halo 4v4 Event"></a>
+                <div id="event">
+                    <p><b>Hosted by: <%= event.host %></b></p>
+                    <p><%= event.category %></p>
+                    <p><%= event.date %></p>
+                    <p><%= event.startTime %> to <%= event.endTime %></p>
+                    <p><%= event.location %></p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h3>Details</h3>
+            <p class="indent"><p><%= event.description %></p></p>
+            <br>
+        </div>
+    </main>
+<%- include('../partials/footer.ejs')%>
