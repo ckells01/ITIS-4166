@@ -5,7 +5,7 @@ const model = require('../models/event');
 //     res.render('./event/index', {events});
 // }
 
-exports.index = (req, res)=>{
+exports.index = (req, res, next)=>{
     model.find()
     .then(events => res.render('./event/index', {events}))
     .catch(err => next(err));
@@ -21,7 +21,7 @@ exports.new = (req, res) => {
 //     res.redirect('./events/');
 // }
 
-exports.create = (req, res)=>{
+exports.create = (req, res, next)=>{
     let event = new model(req.body);
     event.save()
     .then(event => res.redirect('/events'))

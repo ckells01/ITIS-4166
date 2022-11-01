@@ -117,8 +117,8 @@ const eventSchema = new Schema({
     category:    {type: String, required: [true, 'Category is required']},
     location:    {type: String, required: [true, 'Location is required']},
     date:        {type: Date, required: [true, 'Date is required']},
-    startTime:   {type: Date, required: [true, 'Start Time is required']},
-    endTime:     {type: Date, required: [true, 'End Time is required']},
+    startTime:   {type: String, required: [true, 'Start Time is required']},
+    endTime:     {type: String, required: [true, 'End Time is required']},
     description: {type: String, required: [true, 'Description is required'], minLength: [10, 'The description should have at least 10 characters']}
 },
 {timestamps: true}
