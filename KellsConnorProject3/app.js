@@ -12,7 +12,7 @@ const app = express();
 // Configure app
 let port = 8084;
 let host = 'localhost';
-let url = 'mongodb://localhost:27017/events'
+let url = 'mongodb://localhost:27017/NBAD'
 app.set('view engine', 'ejs');
 
 // Connect to MongoDB
@@ -32,13 +32,13 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
 // Setup routes
-app.get('/', (req, res) => {
-    res.render('index');
-});
+// app.get('/', (req, res) => {
+//     res.render('index');
+// });
 
-app.get('/event', (req, res) => {
-    res.render('events');
-});
+// app.get('/event', (req, res) => {
+//     res.render('events');
+// });
 
 app.use('/events', eventRoutes);
 app.use('/', mainRoutes);

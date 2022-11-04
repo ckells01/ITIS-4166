@@ -6,9 +6,36 @@ const model = require('../models/event');
 // }
 
 exports.index = (req, res, next)=>{
+    const data = {
+        distinctCats: {}
+    };
+
+    model.find().distinct('category', (error, arr) => {
+        data.distinctCats = arr;
+    });
+
     model.find()
-    .then(events => res.render('./event/index', {events}))
+    .then(events => {res.render('./event/index', {events, arr: data.distinctCats})})
     .catch(err => next(err));
+
+    /*
+    const data = {
+        events: {},
+        distinctCats: {},
+    };
+
+    model.find().distinct('category', (error, arr) => {
+        data.distinctCats = arr;
+    });
+
+    model.find()
+    .then(events => {
+        data.events = events;
+        return data.distinctCats
+    })
+    .then(returnVal => {res.render('./event/index', {events: data.events, arr: returnVal})})
+    .catch(err => next(err));
+    */
 };
 
 exports.new = (req, res) => {

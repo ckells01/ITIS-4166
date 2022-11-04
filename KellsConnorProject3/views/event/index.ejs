@@ -1,16 +1,23 @@
 <%- include('../partials/header.ejs')%>
     <main>
         <div class="contents">
-            <h3>Upcoming eSports Livestreams</h3>
+            <% arr.forEach(category => { %>
+                <li><%= category %></li>
+            <% }); %>
+        </div>
+    </main>
+<%- include('../partials/footer.ejs')%>
+
+<!-- <h3>Upcoming eSports Livestreams</h3>
             <ul>
                 <% if(events.length) { %>
                     <% events.forEach(event => { %>
-                        <% if(event.category === 'Livestream' || event.category === 'livestream' || event.category === 'stream' || event.category === 'Stream') { %>
+                        <% if(event.category === 'Group Play' || event.category === 'Group play' || event.category === 'group Play' || event.category === 'group play' || event.category === 'play' || event.category === 'Play' || event.category === 'group' || event.category === 'Group') { %>
                             <li><a href = "/events/<%= event.id%>"><%= event.title %></a></li>
                         <% } %>
                     <% }); %>
                 <% } else {%>
-                    <p>There are no upcoming Livestream events to display</p>
+                    <p>There are no upcoming Group Play events to display</p>
                 <% } %>
             </ul>
             <h3>Upcoming Group Play Events</h3>
@@ -24,7 +31,4 @@
                 <% } else {%>
                     <p>There are no upcoming Group Play events to display</p>
                 <% } %>
-            </ul>
-        </div>
-    </main>
-<%- include('../partials/footer.ejs')%>
+            </ul> -->
