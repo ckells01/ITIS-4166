@@ -2,33 +2,13 @@
     <main>
         <div class="contents">
             <% arr.forEach(category => { %>
-                <li><%= category %></li>
+                <h3><%= category %></h3>
+                <% events.forEach(event => { %>
+                    <% if(event.category === category) { %>
+                        <li><a href = "/events/<%= event.id%>"><%= event.title %></a></li>
+                    <% } %>
+                <% }); %>
             <% }); %>
         </div>
     </main>
 <%- include('../partials/footer.ejs')%>
-
-<!-- <h3>Upcoming eSports Livestreams</h3>
-            <ul>
-                <% if(events.length) { %>
-                    <% events.forEach(event => { %>
-                        <% if(event.category === 'Group Play' || event.category === 'Group play' || event.category === 'group Play' || event.category === 'group play' || event.category === 'play' || event.category === 'Play' || event.category === 'group' || event.category === 'Group') { %>
-                            <li><a href = "/events/<%= event.id%>"><%= event.title %></a></li>
-                        <% } %>
-                    <% }); %>
-                <% } else {%>
-                    <p>There are no upcoming Group Play events to display</p>
-                <% } %>
-            </ul>
-            <h3>Upcoming Group Play Events</h3>
-            <ul>
-                <% if(events.length) { %>
-                    <% events.forEach(event => { %>
-                        <% if(event.category === 'Group Play' || event.category === 'Group play' || event.category === 'group Play' || event.category === 'group play' || event.category === 'play' || event.category === 'Play' || event.category === 'group' || event.category === 'Group') { %>
-                            <li><a href = "/events/<%= event.id%>"><%= event.title %></a></li>
-                        <% } %>
-                    <% }); %>
-                <% } else {%>
-                    <p>There are no upcoming Group Play events to display</p>
-                <% } %>
-            </ul> -->

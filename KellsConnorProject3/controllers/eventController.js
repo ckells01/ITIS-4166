@@ -7,6 +7,7 @@ const model = require('../models/event');
 
 exports.index = (req, res, next)=>{
     const data = {
+        // Using objects bypasses scope problems
         distinctCats: {}
     };
 
