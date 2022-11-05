@@ -1,10 +1,5 @@
 const model = require('../models/event');
 
-// exports.index = (req, res) => {
-//     let events = model.find();
-//     res.render('./event/index', {events});
-// }
-
 exports.index = (req, res, next)=>{
     const data = {
         // Using objects bypasses scope problems
@@ -18,36 +13,11 @@ exports.index = (req, res, next)=>{
     model.find()
     .then(events => {res.render('./event/index', {events, arr: data.distinctCats})})
     .catch(err => next(err));
-
-    /*
-    const data = {
-        events: {},
-        distinctCats: {},
-    };
-
-    model.find().distinct('category', (error, arr) => {
-        data.distinctCats = arr;
-    });
-
-    model.find()
-    .then(events => {
-        data.events = events;
-        return data.distinctCats
-    })
-    .then(returnVal => {res.render('./event/index', {events: data.events, arr: returnVal})})
-    .catch(err => next(err));
-    */
 };
 
 exports.new = (req, res) => {
     res.render('./event/new');
 }
-
-// exports.create = (req, res) => {
-//     let event = req.body;
-//     model.save(event);
-//     res.redirect('./events/');
-// }
 
 exports.create = (req, res, next)=>{
     let event = new model(req.body);
@@ -60,19 +30,6 @@ exports.create = (req, res, next)=>{
         next(err);
     });
 };
-
-// exports.show = (req, res, next) => {
-//     let id = req.params.id;
-//     let event = model.findById(id);
-//     console.log(event);
-//     if(event) {
-//         res.render('./event/show', {event});
-//     } else {
-//         let err = new Error('Cannot find a event with id ' + id);
-//         err.status = 404;
-//         next(err);
-//     }
-// }
 
 exports.show = (req, res, next)=>{
     let id = req.params.id;
@@ -96,18 +53,6 @@ exports.show = (req, res, next)=>{
     .catch(err => next(err));
 };
 
-// exports.edit = (req, res, next) => {
-//     let id = req.params.id;
-//     let event = model.findById(id);
-//     if(event) {
-//         res.render('./event/edit', {event});
-//     } else {
-//         let err = new Error('Cannot find a event with id ' + id);
-//         err.status = 404;
-//         next(err);
-//     }
-// }
-
 exports.edit = (req, res, next)=>{
     let id = req.params.id;
 
@@ -130,17 +75,6 @@ exports.edit = (req, res, next)=>{
     .catch(err => next(err));
 };
 
-// exports.update = (req, res, next) => {
-//     let event = req.body;
-//     let id = req.params.id.trim();
-//     if (model.updateById(id, event)) {
-//         res.redirect('/events/' + id); 
-//     } else {
-//         let err = new Error('Cannot find a event with id ' + id);
-//         err.status = 404;
-//         next(err);
-//     }
-// }
 
 exports.update = (req, res, next)=>{
     let event = req.body;
@@ -169,17 +103,6 @@ exports.update = (req, res, next)=>{
         next(err);
     });
 };
-
-// exports.delete = (req, res, next) => {
-//     let id = req.params.id.trim();
-//     if (model.deleteById(id)) {
-//         res.redirect('/events');
-//     } else {
-//         let err = new Error('Cannot find a event with id ' + id);
-//         err.status = 404;
-//         next(err);
-//     }
-// }
 
 exports.delete = (req, res, next)=>{
     let id = req.params.id;

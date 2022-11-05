@@ -120,6 +120,7 @@ const eventSchema = new Schema({
     startTime:   {type: String, required: [true, 'Start Time is required']},
     endTime:     {type: String, required: [true, 'End Time is required']},
     description: {type: String, required: [true, 'Description is required'], minLength: [10, 'The description should have at least 10 characters']}
+    // image:       {type: String, required: [true, 'Image is required']}
 },
 {timestamps: true}
 );
