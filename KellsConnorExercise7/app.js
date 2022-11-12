@@ -3,6 +3,9 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
+const session = require('express-session');
+const flash = require('connect-flash');
 const storyRoutes = require('./routes/storyRoutes');
 const userRoutes = require('./routes/userRoutes');
 
@@ -16,7 +19,7 @@ app.set('view engine', 'ejs');
 
 //connect to database
 mongoose.connect('mongodb://localhost:27017/demos', 
-                {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+                {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>{
     app.listen(port, host, ()=>{
         console.log('Server is running on port', port);
@@ -25,6 +28,26 @@ mongoose.connect('mongodb://localhost:27017/demos',
 .catch(err=>console.log(err.message));
 
 //mount middlware
+
+// Set up session similar to demo
+app.use(
+    session({
+        secret: "ksyrefk3reh6giup1awjg9p4hrf6s8jhd",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {maxAge: 60*60*1000},
+        store: new MongoStore({mongoUrl: 'mongodb://localhost:27017/demos'})
+        })
+);
+app.use(flash());
+
+// Set up messages simliar to demo
+app.use((req, res, next) => {
+    res.locals.errorMessages = req.flash('error');
+    res.locals.successMessages = req.flash('success');
+    next();
+});
+
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));

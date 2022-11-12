@@ -16,3 +16,16 @@
         <a href='/users/profile'>Profile</a>
         <a href='/users/logout'>Logout</a>
     </nav>
+
+    <!-- Similar to layout for messages from demo -->
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'><%=message%></div>
+        <%});%>
+    <%}%>
+    
+    <% if(successMessages.length > 0) {%>
+        <% successMessages.forEach(message=>{%>
+            <div class='success'><%=message%></div>
+        <%});%>
+    <%}%>
