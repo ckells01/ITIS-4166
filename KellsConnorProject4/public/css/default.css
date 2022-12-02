@@ -1,0 +1,94 @@
+header {
+  background-color: #046A38;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+body {
+  margin-left: 5em;
+  margin-right: 5em;
+  background-color: white;
+  padding: 10px;
+}
+
+main {
+  color: black;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+a {
+  color: #B9975B;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #27251F;
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #046A38;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+
+}
+
+.header-logo {
+  width: 4em;
+  height: auto;
+}
+
+.contents {
+  padding-left: 7em;
+  padding-right: 7em;
+  padding-top: 5em;
+  padding-bottom: 5em
+}
+
+.main-nav {
+  text-align: justify;
+}
+
+.user-nav {
+  color: #B9975B;
+}
+
+.footer-content {
+  color: #B9975B;
+}
+
+.footer-logos {
+  text-align: right;
+} 
+
+.lineup {
+  display: inline-flex; 
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.event_content {
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.indent {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.eventButtons {
+  padding-right: 5em;
+}
+
+.formStyle {
+  width: 16em;
+}

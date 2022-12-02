@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <div class="contents">
+            <% arr.forEach(category => { %>
+                <h3><%= category %></h3>
+                <% events.forEach(event => { %>
+                    <% if(event.category === category) { %>
+                        <li><a href = "/events/<%= event.id%>"><%= event.title %></a></li>
+                    <% } %>
+                <% }); %>
+            <% }); %>
+        </div>
+    </main>
+<%- include('../partials/footer.ejs')%>

@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <div class="contents">
+            <form action = '/events' method = 'POST'>
+                <h2>Make a New Event</h2>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title" required placeholder="Enter Title" class="formStyle">
+                <br><br>
+                <label for="host">Host:</label><br>
+                <input type="text" id="host" name="host" required placeholder="Enter Host" class="formStyle">
+                <br><br>
+                <label for="location">Location:</label><br>
+                <input type="text" id="location" name="location" required placeholder="Enter Location" class="formStyle">
+                <br><br>
+                <label for="date">Date:</label><br>
+                <input type="date" id="date" name="date" required placeholder="Enter Date">
+                <br><br>
+                <label for="startTime">Start Time:</label><br>
+                <input type="time" id="startTime" name="startTime">
+                <br><br>
+                <label for="endTime">End Time:</label><br>
+                <input type="time" id="endTime" name="endTime">
+                <br><br>
+                <label for="description">Description:</label><br>
+                <input type="text" id="description" name="description" required minlength="10" placeholder="Enter Description" class="formStyle">
+                <br><br>
+                <label for="category">Category:</label><br>
+                <input type="text" id="category" name="category" required placeholder="Enter Category" class="formStyle">
+                <br><br>
+                <!-- <label for="image">Image:</label><br>
+                <input type="text" id="image" name="image" required placeholder="Enter Image URL" class="formStyle">
+                <br><br> -->
+                <br>
+                <button>Create Event</button>
+            </form>
+            <br><br>
+        </div>
+    </main>
+<%- include('../partials/footer.ejs')%>
