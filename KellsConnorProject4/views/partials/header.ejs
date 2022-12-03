@@ -22,8 +22,31 @@
         </div>
 
         <nav class="user-nav">
-            <a href="/events/new">Make a New Event</a> ||
-            <a>Log In</a> ||
-            <a>Sign Up</a>
+            <%if(!user) {%>
+                <a href="/events/new">Make a New Event</a> ||
+                <a href="/users/login">Log In</a> ||
+                <a href="/users/new">Sign Up</a>
+            <%} else {%>
+                <a href="/events/new">Make a New Event</a> ||
+                <a href='/users/profile'>Profile</a> ||
+                <a href='/users/logout'>Logout</a>
+            <%}%>
         </nav>
+
+        <% if(errorMessages.length > 0) {%>
+            <% errorMessages.forEach(message=>{%>
+                <div class='error'>
+                    <%=message%>
+                </div>
+            <%});%>
+        <%}%>
+        
+        <% if(successMessages.length > 0) {%>
+            <% successMessages.forEach(message=>{%>
+                <div class='success'>
+                    <%=message%>
+                </div>
+            <%});%>
+        <%}%>
+
     </header>
