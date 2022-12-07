@@ -4,10 +4,12 @@
             <div class="lineup">
                 <h2><%= event.title %></h2>
                 <div>
-                    <form>
-                        <button type="submit" formmethod="GET" formaction="/events/<%= event.id %>/edit">Edit</button>
-                        <button type="submit" formmethod="POST" formaction="/events/<%= event.id %>?_method=DELETE">Delete</button>
-                    </form>
+                    <%if(user == event.author._id) {%>
+                        <form>
+                           <button type = "submit" formmethod = "GET" formaction = "/events/<%= event.id %>/edit">Edit</button>
+                           <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id %>?_method=DELETE">Delete</button>
+                        </form>
+                    <%}%>
                 </div>
             </div>
             <div class="event_content">
@@ -15,6 +17,7 @@
                 <!-- <img src="<%= event.image %>" alt="<%= event.image %>"> -->
                 <div id="event">
                     <p><b>Hosted by: <%= event.host %></b></p>
+                    <p>Posted By: <%= event.author.firstName + ' ' + event.author.lastName%></p>
                     <p><%= event.category %></p>
                     <p><%= event.date %></p>
                     <p><%= event.startTime %> to <%= event.endTime %></p>

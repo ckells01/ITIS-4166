@@ -21,6 +21,7 @@ exports.new = (req, res) => {
 
 exports.create = (req, res, next)=>{
     let event = new model(req.body);
+    event.author = req.session.user;
     event.save()
     .then(event => res.redirect('/events'))
     .catch(err => {
@@ -33,14 +34,8 @@ exports.create = (req, res, next)=>{
 
 exports.show = (req, res, next)=>{
     let id = req.params.id;
-    // An objectId is a 24-bit Hex string
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid event id');
-        err.status = 404;
-        return next(err);
-    }
 
-    model.findById(id)
+    model.findById(id).populate('author', 'firstName lastName')
     .then(event => {
         if(event) {
             return res.render('./event/show', {event});
@@ -55,12 +50,6 @@ exports.show = (req, res, next)=>{
 
 exports.edit = (req, res, next)=>{
     let id = req.params.id;
-
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid event id');
-        err.status = 404;
-        return next(err);
-    }
 
     model.findById(id)
     .then(event => {
@@ -79,12 +68,6 @@ exports.edit = (req, res, next)=>{
 exports.update = (req, res, next)=>{
     let event = req.body;
     let id = req.params.id;
-
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid event id');
-        err.status = 404;
-        return next(err);
-    }
 
     model.findByIdAndUpdate(id, event, {useFindAndModify: false, runValidators: true})
     .then(event => {
@@ -106,12 +89,6 @@ exports.update = (req, res, next)=>{
 
 exports.delete = (req, res, next)=>{
     let id = req.params.id;
-
-    if(!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid event id');
-        err.status = 404;
-        return next(err);
-    }
 
     model.findByIdAndDelete(id, {useFindAndModify: false})
     .then(event => {

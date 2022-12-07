@@ -18,12 +18,14 @@
             </nav>
             <nav class="main-nav">
                 <a href="/events/">Events</a>
+                <%if(user) {%>
+                    <h4>Welcome, <%= user.firstName %></h4>
+                <%}%>
             </nav>
         </div>
 
         <nav class="user-nav">
             <%if(!user) {%>
-                <a href="/events/new">Make a New Event</a> ||
                 <a href="/users/login">Log In</a> ||
                 <a href="/users/new">Sign Up</a>
             <%} else {%>
@@ -48,5 +50,7 @@
                 </div>
             <%});%>
         <%}%>
+
+        
 
     </header>

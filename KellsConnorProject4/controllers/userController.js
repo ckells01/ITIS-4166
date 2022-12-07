@@ -1,5 +1,5 @@
 const model = require('../models/user');
-const Story = require('../models/event');
+const Event = require('../models/event');
 
 exports.new = (req, res)=>{
         return res.render('./user/new');
@@ -16,18 +16,17 @@ exports.create = (req, res, next)=>{
         res.redirect('/users/login');
     })
     .catch(err=>{
-        if(err.name === 'ValidationError' ) {
+        if (err.name === 'ValidationError' ) {
             req.flash('error', err.message);  
             return res.redirect('back');
         }
 
-        if(err.code === 11000) {
+        if (err.code === 11000) {
             req.flash('error', 'Email has been used');  
             return res.redirect('back');
         }
         next(err);
     }); 
-    
 };
 
 exports.getUserLogin = (req, res, next) => {
@@ -50,6 +49,7 @@ exports.login = (req, res, next)=>{
             .then(result=>{
                 if(result) {
                     req.session.user = user._id;
+                    // res.locals.user = req.session.user;
                     req.flash('success', 'You have successfully logged in');
                     res.redirect('/users/profile');
             } else {
@@ -64,14 +64,13 @@ exports.login = (req, res, next)=>{
 
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([model.findById(id), Story.find({author: id})])
+    Promise.all([model.findById(id), Event.find({author: id})])
     .then(results=>{
-        const [user, stories] = results;
-        res.render('./user/profile', {user, stories});
+        const [user, events] = results;
+        res.render('./user/profile', {user, events});
     })
     .catch(err=>next(err));
 };
-
 
 exports.logout = (req, res, next)=>{
     req.session.destroy(err=>{

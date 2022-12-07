@@ -1,10 +1,27 @@
 <%- include('../partials/header.ejs')%>
 <div class = "contents">
-    <h2>Welcome, <%=user.firstName%></h2>
-    <%if(events.length) {%>
-        <p>You have created the following events</p>
+    <% if(events.length) {%>
+        <h3>You have created the following events:</h3>
         <%events.forEach(event => {%>
-            <a href = '/events/<%= event.id%>'><p><%=event.title%></p></a>
+            <table>
+                <tr>
+                  <th>Event</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+                <tr>
+                  <td><a href = '/events/<%= event.id%>'><p><%= event.title %></p></a></td>
+                  <td><%= event.category %></td>
+                  <td>
+                    <form>
+                        <button type = "submit" formmethod = "GET" formaction = "/events/<%= event.id %>/edit">Edit</button>
+                        <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id %>?_method=DELETE">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
         <%});
     } else {%>
         <p>You have not created any events</p>

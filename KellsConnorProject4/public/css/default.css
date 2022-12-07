@@ -92,3 +92,17 @@ a:hover {
 .formStyle {
   width: 16em;
 }
+
+.success {
+  color: rgb(31, 175, 103);
+  width: 70%;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.error {
+  color: rgb(190, 25, 25);
+  width: 70%;
+  text-align: center;
+  padding: 10px 10px;
+}
