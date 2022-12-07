@@ -16,10 +16,10 @@ exports.validateId = (req, res, next)=>{
 exports.validateSignUp = [body('firstName', 'First name cannot be empty').notEmpty().trim().escape(),
 body('lastName', 'Last name cannot be empty').notEmpty().trim().escape(),
 body('email', 'Email must be a valid email address').isEmail().trim().escape().normalizeEmail(), 
-body('password', 'Email must be at leat 8 characters and at most 64 characters').isLength({min: 8, max: 64})];
+body('password', 'Password must be at leat 8 characters and at most 64 characters').isLength({min: 8, max: 64})];
 
 exports.validateLogIn = [body('email', 'Email must be a valid email address').isEmail().trim().escape().normalizeEmail(), 
-body('password', 'Email must be at leat 8 characters and at most 64 characters').isLength({min: 8, max: 64})];
+body('password', 'Password must be at leat 8 characters and at most 64 characters').isLength({min: 8, max: 64})];
 
 exports.validateResult = (req, res, next)=>{
     let errors = validationResult(req);
@@ -33,5 +33,5 @@ exports.validateResult = (req, res, next)=>{
     }
 };
 
-exports.validateStory = [body('title', 'Title cannot be empty').trim().escape(),
+exports.validateEvent = [body('title', 'Title cannot be empty').trim().escape(),
 body('content', 'Content must be at leat 10 characters').isLength({min: 10})];

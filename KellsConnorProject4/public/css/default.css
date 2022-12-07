@@ -95,14 +95,15 @@ a:hover {
 
 .success {
   color: rgb(31, 175, 103);
-  width: 70%;
-  text-align: center;
-  padding: 10px 10px;
 }
 
 .error {
   color: rgb(190, 25, 25);
+}
+
+.success, .error {
+  margin-left: 10px;
   width: 70%;
-  text-align: center;
+  text-align: left;
   padding: 10px 10px;
 }

@@ -30,7 +30,7 @@ exports.create = (req, res, next)=>{
 };
 
 exports.getUserLogin = (req, res, next) => {
-        return res.render('./user/login');
+    return res.render('./user/login');
 }
 
 exports.login = (req, res, next)=>{
@@ -49,7 +49,7 @@ exports.login = (req, res, next)=>{
             .then(result=>{
                 if(result) {
                     req.session.user = user._id;
-                    // res.locals.user = req.session.user;
+                    // res.locals.user = model.findById({id: user._id});
                     req.flash('success', 'You have successfully logged in');
                     res.redirect('/users/profile');
             } else {
