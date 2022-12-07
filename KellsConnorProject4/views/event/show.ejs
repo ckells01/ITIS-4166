@@ -9,6 +9,14 @@
                            <button type = "submit" formmethod = "GET" formaction = "/events/<%= event.id %>/edit">Edit</button>
                            <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id %>?_method=DELETE">Delete</button>
                         </form>
+                    <%} else {%>
+                        <p>[num rsvp's] members RSVP'd</p>
+                        <p>RSVP to attend!</p>
+                        <form>
+                            <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id %>/rsvp">Yes</button>
+                            <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id %>/rsvp">No</button>
+                            <button type = "submit" formmethod = "POST" formaction = "/events/<%= event.id %>/rsvp">Maybe</button>
+                        </form>
                     <%}%>
                 </div>
             </div>

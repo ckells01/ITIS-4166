@@ -1,4 +1,5 @@
 const model = require('../models/event');
+const rvspModel = require('../models/rsvp');
 
 exports.index = (req, res, next)=>{
     const data = {
@@ -101,4 +102,9 @@ exports.delete = (req, res, next)=>{
         }
     })
     .catch(err => next(err));
+};
+
+exports.rsvp = (req, res, next) => {
+    let rsvpEvent = new rsvpModel(req.body);
+    rvspModel.findOneAndUpdate();
 };
