@@ -30,7 +30,7 @@ exports.create = (req, res, next)=>{
 };
 
 exports.getUserLogin = (req, res, next) => {
-    return res.render('./user/login');
+    return res.render('./user/login', {firstName: req.session.firstName});
 }
 
 exports.login = (req, res, next)=>{
@@ -67,7 +67,7 @@ exports.profile = (req, res, next)=>{
     Promise.all([model.findById(id), Event.find({author: id})])
     .then(results=>{
         const [user, events] = results;
-        res.render('./user/profile', {user, events});
+        res.render('./user/profile', {user, events, firstName: req.session.firstName});
     })
     .catch(err=>next(err));
 };

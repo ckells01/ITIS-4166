@@ -35,3 +35,14 @@ exports.validateResult = (req, res, next)=>{
 
 exports.validateEvent = [body('title', 'Title cannot be empty').trim().escape(),
 body('content', 'Content must be at leat 10 characters').isLength({min: 10})];
+
+
+exports.isDate = [body('date', 'Date must be a valid date').isDate()];
+
+exports.isAfter = (req, res, next) => {
+    
+};
+
+exports.matches = (req, res, next) => {
+    
+};
