@@ -20,11 +20,10 @@ router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
 
 // PUT /events/:id: update the event identified by id
-router.put('/:id', controller.update);
+router.put('/:id', isDate, isAfter, matches, compareTime, validateResult, controller.update);
 
 // DELETE /events/:id: delete the event identified by id
 router.delete('/:id', controller.delete);
-
 
 // POST /events/:id/rsvp: ?
 router.post('/:id/rsvp');
