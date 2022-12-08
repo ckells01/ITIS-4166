@@ -1,4 +1,3 @@
 RSVP: 40 pts
 Flash message alignment
-Welcome, User message
 Security Measures (Date/Time requirements)

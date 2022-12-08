@@ -7,7 +7,7 @@ exports.new = (req, res)=>{
 
 exports.create = (req, res, next)=>{
     let user = new model(req.body);
-    if (user.emaul) {
+    if (user.email) {
         user.email = user.email.toLowerCase();
     }
     user.save()
@@ -49,7 +49,7 @@ exports.login = (req, res, next)=>{
             .then(result=>{
                 if(result) {
                     req.session.user = user._id;
-                    // res.locals.user = model.findById({id: user._id});
+                    req.session.firstName = user.firstName;
                     req.flash('success', 'You have successfully logged in');
                     res.redirect('/users/profile');
             } else {

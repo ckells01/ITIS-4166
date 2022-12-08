@@ -1,5 +1,6 @@
 const model = require('../models/event');
 const rvspModel = require('../models/rsvp');
+const user = require('../models/user');
 
 exports.index = (req, res, next)=>{
     const data = {
@@ -12,12 +13,12 @@ exports.index = (req, res, next)=>{
     });
 
     model.find()
-    .then(events => {res.render('./event/index', {events, arr: data.distinctCats})})
+    .then(events => {res.render('./event/index', {events, arr: data.distinctCats, firstName: req.session.firstName})})
     .catch(err => next(err));
 };
 
 exports.new = (req, res) => {
-    res.render('./event/new');
+    res.render('./event/new', {firstName: req.session.firstName});
 }
 
 exports.create = (req, res, next)=>{
@@ -35,11 +36,11 @@ exports.create = (req, res, next)=>{
 
 exports.show = (req, res, next)=>{
     let id = req.params.id;
-
+    console.log("show func: " + req.session.firstName);
     model.findById(id).populate('author', 'firstName lastName')
     .then(event => {
         if(event) {
-            return res.render('./event/show', {event});
+            return res.render('./event/show', {event, firstName: req.session.firstName});
         } else {
             let err = new Error('Cannot find a event with id ' + id);
             err.status = 404;
@@ -55,7 +56,7 @@ exports.edit = (req, res, next)=>{
     model.findById(id)
     .then(event => {
         if(event) {
-            return res.render('./event/edit', {event});
+            return res.render('./event/edit', {event, firstName: req.session.firstName});
         } else {
             let err = new Error('Cannot find a event with id ' + id);
             err.status = 404;
