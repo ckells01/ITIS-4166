@@ -36,7 +36,6 @@ exports.create = (req, res, next)=>{
 
 exports.show = (req, res, next)=>{
     let id = req.params.id;
-    console.log("show func: " + req.session.firstName);
     model.findById(id).populate('author', 'firstName lastName')
     .then(event => {
         if(event) {
