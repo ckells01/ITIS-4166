@@ -107,3 +107,11 @@ a:hover {
   text-align: left;
   padding: 10px 10px;
 }
+
+table, th, tr, td {
+  border: 1px solid;
+}
+
+th, tr, td {
+  padding: 5px;
+}
